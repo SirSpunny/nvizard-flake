@@ -35,6 +35,7 @@
           shfmt
           unzip
           yaml-language-server
+          taskwarrior3
         ];
       in {
         packages.default = pkgs.wrapNeovim pkgs.neovim-unwrapped {
