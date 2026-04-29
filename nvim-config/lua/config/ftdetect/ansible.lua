@@ -1,7 +1,4 @@
 vim.filetype.add({
-    extension = {
-        ansible = "yaml.ansible"
-    },
     pattern = {
         -- Erkennt YAML-Dateien in typischen Ansible-Ordnern als ansible
         [".*/host_vars/.*%.ya?ml"] = "yaml.ansible",
