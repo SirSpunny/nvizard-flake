@@ -18,6 +18,6 @@ require("config.lsp")
 require("config.lazy")
 
 -- apply colorscheme
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("mellow")
 
 -- vim: ts=2 sts=2 sw=2 et
