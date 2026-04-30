@@ -52,8 +52,8 @@
             packages.nvizard = {
               start = [
                 pkgs.awesomeNeovimPlugins.colorful-menu-nvim
-                pkgs.awesomeNeovimPlugins.lualine-nvim
                 pkgs.awesomeNeovimPlugins.nvim-web-devicons
+                pkgs.awesomeNeovimPlugins.nvim-surround
                 pkgs.awesomeNeovimPlugins.snacks-nvim
                 pkgs.vimPlugins.blink-cmp
                 pkgs.vimPlugins.lz-n
@@ -64,11 +64,11 @@
                 pkgs.awesomeNeovimPlugins.codecompanion-nvim
                 pkgs.awesomeNeovimPlugins.conform-nvim
                 pkgs.awesomeNeovimPlugins.gitsigns-nvim
-                pkgs.awesomeNeovimPlugins.nvim-surround
                 pkgs.awesomeNeovimPlugins.render-markdown-nvim
                 pkgs.awesomeNeovimPlugins.trouble-nvim
                 pkgs.awesomeNeovimPlugins.which-key-nvim
                 pkgs.awesomeNeovimPlugins.kanagawa-nvim
+                pkgs.awesomeNeovimPlugins.lualine-nvim
               ];
             };
             customRC = ''
