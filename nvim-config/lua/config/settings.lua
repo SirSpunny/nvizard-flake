@@ -1,3 +1,11 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.g.have_nerd_font = true
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+
+vim.o.winborder = "rounded"
+
 vim.opt.number = true             -- Make line numbers default
 vim.opt.relativenumber = true     -- Enable relative line numbers
 vim.opt.mouse = "a"               -- Enable mouse mode, can be useful for resizing splits for example!

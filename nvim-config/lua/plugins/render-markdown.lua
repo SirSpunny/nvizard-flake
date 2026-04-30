@@ -1,6 +1,9 @@
 return {
-	'MeanderingProgrammer/render-markdown.nvim',
-	dependencies = { 'nvim-tree/nvim-web-devicons' },
-	---@module 'render-markdown'
-	opts = {},
+    "render-markdown-nvim",
+    ft = { "markdown", "codecompanion" },
+    after = function()
+        require("render-markdown").setup({
+            file_types = { "markdown", "codecompanion" },
+        })
+    end,
 }
