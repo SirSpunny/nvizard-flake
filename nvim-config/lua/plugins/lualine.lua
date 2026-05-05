@@ -1,7 +1,11 @@
 return {
     "lualine-nvim",
+    lazy = false,
+    before = function()
+        vim.cmd.packadd("nvim-web-devicons")
+    end,
     after = function()
-        local custom_funcs = require("config.custom_functions")
+        local custom_funcs = require("modules.helper_functions")
         require("lualine").setup({
             options = {
                 component_separators = '',
@@ -15,7 +19,7 @@ return {
                 lualine_b = { 'filename', 'branch' },
                 lualine_c = { '%=', },
                 lualine_x = { 'diagnostics' },
-                lualine_y = { 'filetype', { custom_funcs.active_lsps }, 'progress' },
+                lualine_y = { 'filetype', { custom_funcs.active_lsps }, 'encoding', 'progress' },
                 lualine_z = {
                     { 'location', separator = { right = '' }, left_padding = 2 },
                 },

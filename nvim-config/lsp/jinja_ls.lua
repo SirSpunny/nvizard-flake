@@ -1,5 +1,5 @@
 return {
-    cmd = { "jinja2-lsp" },
-    filetypes = { "jinja", "jinja2", "j2" },
+    cmd = { "jinja-lsp" },
+    filetypes = { "jinja" },
     root_dir = vim.fs.root(0, { ".git" }),
 }

@@ -40,8 +40,15 @@
           nil
           ripgrep
           shfmt
+          wl-clipboard
           yaml-language-server
           taskwarrior3
+          texliveBasic
+          imagemagick
+          docker-compose-language-service
+          dockerfile-language-server
+          ghostscript
+          mermaid-cli
           # no candidate on nixpkgs (TODO add later)
           # - libtexprintf
           # - utftex
@@ -51,16 +58,17 @@
           configure = {
             packages.nvizard = {
               start = [
-                pkgs.awesomeNeovimPlugins.colorful-menu-nvim
-                pkgs.awesomeNeovimPlugins.nvim-web-devicons
-                pkgs.awesomeNeovimPlugins.nvim-surround
-                pkgs.awesomeNeovimPlugins.snacks-nvim
-                pkgs.vimPlugins.blink-cmp
                 pkgs.vimPlugins.lz-n
-                pkgs.vimPlugins.plenary-nvim
-                pkgs.vimPlugins.vim-sleuth
+                treesitter-with-grammars
               ];
               opt = [
+                pkgs.vimPlugins.vim-sleuth
+                pkgs.awesomeNeovimPlugins.snacks-nvim
+                pkgs.awesomeNeovimPlugins.nvim-web-devicons
+                pkgs.vimPlugins.plenary-nvim
+                pkgs.awesomeNeovimPlugins.nvim-surround
+                pkgs.awesomeNeovimPlugins.colorful-menu-nvim
+                pkgs.vimPlugins.blink-cmp
                 pkgs.awesomeNeovimPlugins.codecompanion-nvim
                 pkgs.awesomeNeovimPlugins.conform-nvim
                 pkgs.awesomeNeovimPlugins.gitsigns-nvim
@@ -81,7 +89,6 @@
 
           extraMakeWrapperArgs = ''
             --prefix PATH : ${pkgs.lib.makeBinPath runtimeDeps} \
-            --prefix XDG_CONFIG_DIRS : ${treesitter-with-grammars}
           '';
         };
       }

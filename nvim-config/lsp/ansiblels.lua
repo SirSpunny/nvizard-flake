@@ -1,6 +1,6 @@
 return {
     cmd = { "ansible-language-server", "--stdio" },
-    filetypes = { "ansible", "yaml.ansible" },
+    filetypes = { "yaml.ansible" },
     root_dir = vim.fs.root(0, { "ansible.cfg", ".ansible-lint", "inventory", "playbooks" }),
     settings = {
         ansible = {

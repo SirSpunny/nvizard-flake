@@ -1,5 +1,9 @@
 return {
     "snacks-nvim",
+    lazy = false,
+    before = function()
+        vim.cmd.packadd("nvim-web-devicons")
+    end,
     after = function()
         require("snacks").setup({
             bigfile = { enabled = true },
