@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
 
+    libtexprintf.url = "github:SirSpunny/libtexprintf-flake";
     flake-awesome-neovim-plugins = {
       url = "github:m15a/flake-awesome-neovim-plugins";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,6 +17,7 @@
     nixpkgs,
     flake-utils,
     flake-awesome-neovim-plugins,
+    libtexprintf,
   }:
     flake-utils.lib.eachDefaultSystem (
       system: let
@@ -49,6 +51,7 @@
           dockerfile-language-server
           ghostscript
           mermaid-cli
+          libtexprintf.packages.${system}.default
           # no candidate on nixpkgs (TODO add later)
           # - libtexprintf
           # - utftex
