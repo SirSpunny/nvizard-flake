@@ -20,9 +20,18 @@ return {
             },
             format_by_ft = {
                 sh = { "shfmt" },
-                vue = { "vue_ls", lsp_format = "first" },
             },
-            format_on_save = { timeout_ms = 500 },
+            format_on_save = function(bufnr)
+                return {
+                    timeout_ms = 500,
+                    filter = function(client)
+                        if vim.bo[bufnr].filetype == "vue" then
+                            return client.name ~= "vtsls"
+                        end
+                        return true
+                    end,
+                }
+            end,
             formatters = {
                 shfmt = {
                     append_args = { "-i", "2" },
