@@ -20,6 +20,7 @@ return {
             },
             format_by_ft = {
                 sh = { "shfmt" },
+                vue = { "vue_ls", lsp_format = "first" },
             },
             format_on_save = { timeout_ms = 500 },
             formatters = {
@@ -29,7 +30,6 @@ return {
             },
         })
 
-        -- The 'init' block from your lazy config
         vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end,
 }

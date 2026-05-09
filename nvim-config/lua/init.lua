@@ -9,9 +9,6 @@ require("modules.helper_functions").clipboard_switch()
 -- [[ load custom filetype detection ]]
 require("config.filetypes")
 
--- [[ load lsp configs ]]
-require("config.lsp")
-
 -- [[ initialize lz.n ]]
 require("config.lz-n")
 

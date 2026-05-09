@@ -26,6 +26,11 @@
           overlays = [flake-awesome-neovim-plugins.overlays.default];
         };
         treesitter-with-grammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: builtins.attrValues p);
+        vueTsPluginWrapper = pkgs.runCommand "vuels-ts-plugin-wrapper" {} ''
+          mkdir -p $out/node_modules/@vue
+          ln -s ${pkgs.vue-language-server}/lib/language-tools/packages/typescript-plugin \
+                $out/node_modules/@vue/typescript-plugin
+        '';
 
         runtimeDeps = with pkgs; [
           alejandra
@@ -52,9 +57,11 @@
           ghostscript
           mermaid-cli
           libtexprintf.packages.${system}.default
-          # no candidate on nixpkgs (TODO add later)
-          # - libtexprintf
-          # - utftex
+
+          vue-language-server
+          vtsls
+          typescript
+          lazygit
         ];
       in {
         packages.default = pkgs.wrapNeovim pkgs.neovim-unwrapped {
@@ -80,11 +87,14 @@
                 pkgs.awesomeNeovimPlugins.which-key-nvim
                 pkgs.awesomeNeovimPlugins.kanagawa-nvim
                 pkgs.awesomeNeovimPlugins.lualine-nvim
+                pkgs.vimPlugins.nvim-lspconfig
               ];
             };
             customRC = ''
               lua << EOF
-                vim.opt.rtp:prepend("${./nvim-config}")
+                vim.g.flake_config_path = "${./nvim-config}"
+                vim.g.vue_ls_typescript_plugin_path = "${vueTsPluginWrapper}"
+                vim.opt.rtp:prepend(vim.g.flake_config_path)
                 require("init")
               EOF
             '';

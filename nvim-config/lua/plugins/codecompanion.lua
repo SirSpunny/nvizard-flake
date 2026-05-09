@@ -5,6 +5,9 @@ return {
         { "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", mode = { "n", "v" }, desc = "[c]odeCompanion [c]hat" },
         { "<leader>ca", "<cmd>CodeCompanionActions<cr>",     mode = { "n", "v" }, desc = "[c]odecompanion [a]ctions" },
     },
+    before = function()
+        vim.cmd.packadd("plenary.nvim")
+    end,
     after = function()
         require("codecompanion").setup({
             strategies = {
