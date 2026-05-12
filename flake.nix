@@ -88,6 +88,11 @@
                 pkgs.awesomeNeovimPlugins.kanagawa-nvim
                 pkgs.awesomeNeovimPlugins.lualine-nvim
                 pkgs.vimPlugins.nvim-lspconfig
+
+                pkgs.vimPlugins.nvim-dap
+                pkgs.awesomeNeovimPlugins.nvim-dap-ui
+                pkgs.awesomeNeovimPlugins.nvim-dap-virtual-text
+                pkgs.vimPlugins.nvim-nio
               ];
             };
             customRC = ''
