@@ -69,7 +69,6 @@
             packages.nvizard = {
               start = [
                 pkgs.vimPlugins.lz-n
-                treesitter-with-grammars
               ];
               opt = [
                 pkgs.vimPlugins.vim-sleuth
@@ -93,6 +92,8 @@
                 pkgs.awesomeNeovimPlugins.nvim-dap-ui
                 pkgs.awesomeNeovimPlugins.nvim-dap-virtual-text
                 pkgs.vimPlugins.nvim-nio
+
+                treesitter-with-grammars
               ];
             };
             customRC = ''
