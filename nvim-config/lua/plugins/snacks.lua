@@ -66,7 +66,16 @@ return {
         vim.keymap.set("n", "<leader>N", function() Snacks.picker.notifications() end,
             { desc = "[N]otification History" })
         vim.keymap.set("n", "<leader>T", function() Snacks.explorer() end, { desc = "[T]ree (Snacks Explorer)" })
-        vim.keymap.set("n", "<leader>t", function() Snacks.terminal() end, { desc = "[t]erminal" })
+        vim.keymap.set("n", "<leader>th", function() Snacks.terminal() end, { desc = "[t]erminal ([h]orizontal)" })
         vim.keymap.set("n", "<leader>lg", function() Snacks.lazygit() end, { desc = "[l]azy[g]it" })
+
+        vim.keymap.set({ "n", "t" }, "<leader>tv", function()
+            Snacks.terminal.toggle(nil, {
+                win = {
+                    position = "right",
+                    width = 0.4,
+                },
+            })
+        end, { desc = "[t]erminal ([v]ertical)" })
     end
 }
