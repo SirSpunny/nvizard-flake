@@ -23,7 +23,32 @@
       system: let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [flake-awesome-neovim-plugins.overlays.default];
+          overlays = [
+            flake-awesome-neovim-plugins.overlays.default
+
+            (final: prev: {
+              awesomeNeovimPlugins =
+                builtins.mapAttrs
+                (
+                  _: plugin:
+                    if
+                      builtins.isAttrs plugin
+                      && (plugin.type or null) == "derivation"
+                    then
+                      plugin.overrideAttrs (old: {
+                        nativeCheckInputs =
+                          builtins.filter
+                          (
+                            input:
+                              final.lib.getName input != "neovim-require-check-hook"
+                          )
+                          (old.nativeCheckInputs or []);
+                      })
+                    else plugin
+                )
+                prev.awesomeNeovimPlugins;
+            })
+          ];
         };
         treesitter-with-grammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: builtins.attrValues p);
         vueTsPluginWrapper = pkgs.runCommand "vuels-ts-plugin-wrapper" {} ''
