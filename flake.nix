@@ -78,7 +78,7 @@
                 pkgs.awesomeNeovimPlugins.nvim-surround
                 pkgs.awesomeNeovimPlugins.colorful-menu-nvim
                 pkgs.vimPlugins.blink-cmp
-                pkgs.awesomeNeovimPlugins.codecompanion-nvim
+                # pkgs.awesomeNeovimPlugins.codecompanion-nvim
                 pkgs.awesomeNeovimPlugins.conform-nvim
                 pkgs.awesomeNeovimPlugins.gitsigns-nvim
                 pkgs.awesomeNeovimPlugins.render-markdown-nvim
